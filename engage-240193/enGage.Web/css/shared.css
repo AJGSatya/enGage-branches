@@ -1,0 +1,243 @@
+﻿body
+{
+}
+
+.page
+{
+	font-family: Verdana;
+	font-size: 8pt;
+	margin: 0;
+	padding: 0;
+	color: #00467f;
+	background: white;
+	background-repeat: no-repeat;
+	min-height: 500px;
+}
+.page-assign
+{
+	font-family: Verdana;
+	font-size: 8pt;
+	margin: 0;
+	padding: 0;
+	color: #00467f;
+	background: white;
+	background-repeat: no-repeat;
+	min-height: 200px;
+}
+
+.page-title
+{
+	font-size: 11pt;
+	font-weight: bold;
+	color: #00467f;
+}
+
+.page-subtitle
+{
+	font-size: 10pt;
+	font-weight: bold;
+    color: #00467f;
+}
+
+.page-label
+{
+	font-size: 7.5pt;
+	font-weight: bold;
+    color: #5f6062;
+}
+
+.page-text
+{
+	font-size: 8pt;
+	font-weight: normal;
+    color: #00467f;
+}
+
+.page-text-bold
+{
+	font-size: 8pt;
+	color: #00467f;
+	font-weight: bold;
+}
+
+.page-group
+{
+	font-size: 8pt;
+    color: #00467f;
+    margin: 0px;
+    padding: 4px 6px;
+    background-color: #d3d2c4;
+}
+
+.page-table
+{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.page-table td
+{
+	margin: 0;
+	padding: 4px 6px;
+}
+
+.page-table tr .underline
+{
+	border-bottom: solid 1px #d3d2c4;
+}
+
+.page-table tr .right-aligned
+{
+	text-align: right;
+}
+
+.page-table tr .right-aligned-underlined
+{
+	text-align: right;
+	border-bottom: solid 1px #d3d2c4;
+}
+
+.validation-err
+{
+	border: solid 1px red;
+	color: red;
+	font-family: Verdana;
+	font-size: 8pt;
+}
+.validation-border
+{
+	border: solid 1px red;
+	
+	font-family: Verdana;
+	font-size: 8pt;
+}
+
+.validation-warn
+{
+	border: solid 1px #ce7109;
+	color: #ce7109;
+	font-family: Verdana;
+	font-size: 8pt;
+}
+
+.hline
+{
+	color: #6398cc;
+	background-color: #6398cc;
+	height: 1px;
+}
+
+.inactive
+{
+	border: 1px solid #FF0000;
+	background-color: #d3d2c4;
+	color: Red;
+	text-align: center;
+	padding: 4px;
+}
+
+.control
+{
+	font-family: Verdana;
+	font-size: 8pt;
+}
+
+input[type="image"]
+{
+	vertical-align:middle;
+}
+
+.button-link
+{
+	font-family: Verdana;
+	font-size: 8pt;
+	color: white;
+	border: solid 1px #5f6062;
+	cursor: pointer;
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#d3d2c4',endColorstr='#5f6062', gradientType='0')progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='#d3d2c4', Positive='true');
+}
+
+.button-action
+{
+	font-family: Verdana;
+	font-size: 8pt;
+	color: black;
+	border: solid 1px #5f6062;
+	cursor: pointer;
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#ffffff',endColorstr='#d3d2c4', gradientType='0')progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='#d3d2c4', Positive='true');
+}
+
+.button
+{
+	border: inset 1px #5f6062;
+    background: #d3d2c4;
+    filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#ffffff',endColorstr='#d3d2c4', gradientType='0')progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='#d3d2c4', Positive='true');
+    color: black;
+    font-family: Verdana;
+    font-size: 8pt;
+    cursor: pointer;
+}
+
+.control-start
+{
+	font-family: Verdana;
+	font-size: 8pt;
+	font-weight: normal;
+	color: #d3d2c4;
+	font-style: italic; 
+}
+
+.ajax__calendar_body tr td 
+{
+	padding: 0px; 
+	margin: 0px;
+}
+
+.result
+{
+	border: 1px solid #d3d2c4;
+	width: auto;
+	height: 120px;
+	overflow: auto;
+}
+
+.page-table td #report
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+.panel-header
+{
+	font-size: 8pt;
+    color: #00467f;
+    cursor:pointer;
+    margin: 0px;
+    padding: 4px 6px;
+    background-color: #d3d2c4;
+}
+
+.upload-Dialog {
+  position: relative;
+  background: #FFF;
+  padding: 20px;
+  width: auto;
+  max-width: 500px;
+  margin: auto;
+  text-align:center;
+}
+
+.mfp-close
+{
+    top:-85px !important;
+    right:-10px !important;
+       font-size: 2em!important;
+}
+
+
+.files .name
+{
+    padding-left:0px !important;
+}

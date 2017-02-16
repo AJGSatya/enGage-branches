@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="enGage" Class="enGageDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=OBSMELDEVSPS02.obs.com.au;Initial Catalog=enGage;User ID=engagedev" SettingsObjectName="enGage.DL.Properties.Settings" SettingsPropertyName="enGageConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AUPostCode" Member="AUPostCodes">
+    <Type Name="AUPostCode">
+      <Column Name="PostCode" Type="System.String" DbType="VarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StateCode" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Suburb" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Classification" Member="Classifications">
+    <Type Name="Classification">
+      <Column Name="ClassificationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClassificationName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FollowUpDefault" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Classification_Opportunity" Member="Opportunities" ThisKey="ClassificationID" OtherKey="ClassificationID" Type="Opportunity" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ExceptionLog" Member="ExceptionLogs">
+    <Type Name="ExceptionLog">
+      <Column Name="ExceptionLogId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ShortDescription" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="LongDescription" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Message" Member="Messages">
+    <Type Name="Message">
+      <Column Name="MessageKey" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MessageText" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Setting" Member="Settings">
+    <Type Name="Setting">
+      <Column Name="SettingCode" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SettingValue" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BusinessType" Member="BusinessTypes">
+    <Type Name="BusinessType">
+      <Column Name="BusinessTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BusinessTypeName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="BusinessType_Opportunity" Member="Opportunities" ThisKey="BusinessTypeID" OtherKey="BusinessTypeID" Type="Opportunity" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Contact" Member="Contacts">
+    <Type Name="Contact">
+      <Column Name="ContactID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Inactive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ContactName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="DirectLine" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="AddedBy" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Added" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Modified" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Association Name="Contact_Client" Member="Clients" ThisKey="ContactID" OtherKey="PrimaryContactID" Type="Client" />
+      <Association Name="Contact_Opportunity" Member="Opportunities" ThisKey="ContactID" OtherKey="ContactID" Type="Opportunity" />
+      <Association Name="Contact_Activity" Member="Activities" ThisKey="ContactID" OtherKey="ContactID" Type="Activity" />
+      <Association Name="Client_Contact" Member="Client" ThisKey="ClientID" OtherKey="ClientID" Type="Client" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Industry" Member="Industries">
+    <Type Name="Industry">
+      <Column Name="AnzsicCode" Type="System.String" DbType="VarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NationalBusinessLine" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="IndustryName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="IndustryKeyWords" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="IndustryGroupL1code" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="IndustryGroupL1" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="IndustryGroupL2code" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="IndustryGroupL2" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="IndustryGroupL3code" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="IndustryGroupL3" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Association Name="Industry_Association" Member="Associations" ThisKey="AnzsicCode" OtherKey="AnzsicCode" Type="Association" />
+      <Association Name="Industry_Client" Member="Clients" ThisKey="AnzsicCode" OtherKey="AnzsicCode" Type="Client" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Association" Member="Associations">
+    <Type Name="Association">
+      <Column Name="AssociationCode" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AssociationName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="AnzsicCode" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Association Name="Association_Client" Member="Clients" ThisKey="AssociationCode" OtherKey="AssociationCode" Type="Client" />
+      <Association Name="Industry_Association" Member="Industry" ThisKey="AnzsicCode" OtherKey="AnzsicCode" Type="Industry" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Client" Member="Clients">
+    <Type Name="Client">
+      <Column Name="ClientID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Inactive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AccountExecutiveID" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ClientName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="RegisteredName" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="InsuredName" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="ABNACN" Type="System.String" DbType="Char(11)" CanBeNull="true" />
+      <Column Name="AnzsicCode" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="AssociationCode" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="AssociationMemberNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Source" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="StateCode" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PostCode" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="OfficePhone" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="OfficeFacsimilie" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PrimaryContactID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AddedBy" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Added" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Modified" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Association Name="Client_Contact" Member="Contacts" ThisKey="ClientID" OtherKey="ClientID" Type="Contact" />
+      <Association Name="Client_Opportunity" Member="Opportunities" ThisKey="ClientID" OtherKey="ClientID" Type="Opportunity" />
+      <Association Name="Association_Client" Member="Association" ThisKey="AssociationCode" OtherKey="AssociationCode" Type="Association" IsForeignKey="true" />
+      <Association Name="Contact_Client" Member="Contact" ThisKey="PrimaryContactID" OtherKey="ContactID" Type="Contact" IsForeignKey="true" />
+      <Association Name="Industry_Client" Member="Industry" ThisKey="AnzsicCode" OtherKey="AnzsicCode" Type="Industry" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BranchRegion" Member="BranchRegions">
+    <Type Name="BranchRegion">
+      <Column Name="Branch" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Region" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Status" Member="Status">
+    <Type Name="Status">
+      <Column Name="StatusID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StatusName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Action" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Phase" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="OutcomeType" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="PreviousStatusID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Status_Status" Member="Status2" ThisKey="StatusID" OtherKey="PreviousStatusID" Type="Status" />
+      <Association Name="Status_Activity" Member="Activities" ThisKey="StatusID" OtherKey="OpportunityStatusID" Type="Activity" />
+      <Association Name="Status_Status" Member="Status1" ThisKey="PreviousStatusID" OtherKey="StatusID" Type="Status" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[_ibais_TeamList]" Member="_ibais_TeamLists">
+    <Type Name="_ibais_TeamList">
+      <Column Name="Ledger_Code" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Executive_Code" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Executive_Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[SAM Account Name]" Member="SAM_Account_Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Team_Code" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Team_Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IsMember" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IsTeamLeader" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Reporting_Branch_Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Reporting_Region_Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TeamLeaderName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ActionLog" Member="ActionLogs">
+    <Type Name="ActionLog">
+      <Column Name="ActionLogID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TableName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Action" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Detail" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="ActionDate" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ActionedBy" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Opportunity" Member="Opportunities">
+    <Type Name="Opportunity">
+      <Column Name="OpportunityID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Inactive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Flagged" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ClientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OpportunityName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="OpportunityDue" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="IncumbentBroker" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IncumbentInsurer" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ClassificationID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BusinessTypeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NetBrokerageQuoted" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NetBrokerageActual" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DateCompleted" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="MemoNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ContactID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AddedBy" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Added" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Modified" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="NetBrokerageEstimated" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Association Name="Opportunity_Activity" Member="Activities" ThisKey="OpportunityID" OtherKey="OpportunityID" Type="Activity" />
+      <Association Name="BusinessType_Opportunity" Member="BusinessType" ThisKey="BusinessTypeID" OtherKey="BusinessTypeID" Type="BusinessType" IsForeignKey="true" />
+      <Association Name="Classification_Opportunity" Member="Classification" ThisKey="ClassificationID" OtherKey="ClassificationID" Type="Classification" IsForeignKey="true" />
+      <Association Name="Client_Opportunity" Member="Client" ThisKey="ClientID" OtherKey="ClientID" Type="Client" IsForeignKey="true" />
+      <Association Name="Contact_Opportunity" Member="Contact" ThisKey="ContactID" OtherKey="ContactID" Type="Contact" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Activity" Member="Activities">
+    <Type Name="Activity">
+      <Column Name="ActivityID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Inactive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="OpportunityID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OpportunityStatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ActivityNote" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FollowUpDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ContactID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AddedBy" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Added" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Modified" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Association Name="Contact_Activity" Member="Contact" ThisKey="ContactID" OtherKey="ContactID" Type="Contact" IsForeignKey="true" />
+      <Association Name="Opportunity_Activity" Member="Opportunity" ThisKey="OpportunityID" OtherKey="OpportunityID" Type="Opportunity" IsForeignKey="true" />
+      <Association Name="Status_Activity" Member="Status" ThisKey="OpportunityStatusID" OtherKey="StatusID" Type="Status" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.sp_web_ListLogs" Method="sp_web_ListLogs">
+    <Parameter Name="Filter" Parameter="filter" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_web_ListLogsResult">
+      <Column Name="ExceptionLogId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ShortDescription" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="LongDescription" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_web_IsOpportunityCompleted" Method="sp_web_IsOpportunityCompleted">
+    <Parameter Name="OpportunityID" Parameter="opportunityID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IsCompleted" Parameter="isCompleted" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_web_GetCurrentOpportunityStatus" Method="sp_web_GetCurrentOpportunityStatus">
+    <Parameter Name="OpportunityID" Parameter="opportunityID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_web_GetCurrentOpportunityStatusResult">
+      <Column Name="OpportunityStatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StatusName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_web_GetCurrentFollowUpDate" Method="sp_web_GetCurrentFollowUpDate">
+    <Parameter Name="OpportunityID" Parameter="opportunityID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FollowUpDate" Parameter="followUpDate" Type="System.DateTime" DbType="SmallDateTime" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_web_ListClientOpenOpportunities" Method="sp_web_ListClientOpenOpportunities">
+    <Parameter Name="ClientID" Parameter="clientID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_web_ListClientOpenOpportunitiesResult">
+      <Column Name="ClientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OpportunityID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OpportunityName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Flagged" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BusinessTypeName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ClassificationName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="StatusName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Added" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FollowUpDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_web_ListClientClosedOpportunities" Method="sp_web_ListClientClosedOpportunities">
+    <Parameter Name="ClientID" Parameter="clientID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_web_ListClientClosedOpportunitiesResult">
+      <Column Name="ClientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OpportunityID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OpportunityName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Flagged" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BusinessTypeName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ClassificationName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="StatusName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Added" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FollowUpDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_web_ListOpportunityInactiveActivities" Method="sp_web_ListOpportunityInactiveActivities">
+    <Parameter Name="OpportunityID" Parameter="opportunityID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_web_ListOpportunityInactiveActivitiesResult">
+      <Column Name="ActivityID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StatusDescription" Type="System.String" DbType="VarChar(81)" CanBeNull="true" />
+      <Column Name="Added" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ActivityNote" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_web_ListClientContacts" Method="sp_web_ListClientContacts">
+    <Parameter Name="ClientID" Parameter="clientID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_web_ListClientContactsResult">
+      <Column Name="ContactID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ContactName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_web_ListNextOpportunityStatuses" Method="sp_web_ListNextOpportunityStatuses">
+    <Parameter Name="OpportunityID" Parameter="opportunityID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_web_ListNextOpportunityStatusesResult">
+      <Column Name="StatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StatusName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_web_ListCurrentOpportunityStatuses" Method="sp_web_ListCurrentOpportunityStatuses">
+    <Parameter Name="OpportunityID" Parameter="opportunityID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_web_ListCurrentOpportunityStatusesResult">
+      <Column Name="StatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StatusName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_web_FindClientByField" Method="sp_web_FindClientByField">
+    <Parameter Name="SearchCriteria" Parameter="searchCriteria" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="ClientFilter" Parameter="clientFilter" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="MatchFilter" Parameter="matchFilter" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="FieldName" Parameter="fieldName" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="MaxRecords" Parameter="maxRecords" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NoOfRecords" Parameter="noOfRecords" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <ElementType Name="sp_web_FindClientByFieldResult">
+      <Column Name="ClientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ClientName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(56)" CanBeNull="true" />
+      <Column Name="AccountExecutiveID" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="DisplayName" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Matched" Type="System.String" DbType="VarChar(260)" CanBeNull="true" />
+      <Column Name="Match" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="Inactive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FollowUpDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_web_ListStatusesByOutcomeType" Method="sp_web_ListStatusesByOutcomeType">
+    <Parameter Name="OutcomeType" Parameter="outcomeType" Type="System.Char" DbType="Char(1)" />
+    <ElementType Name="sp_web_ListStatusesByOutcomeTypeResult">
+      <Column Name="StatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StatusName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Action" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Phase" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.proc_rpt_DashboardNorthSydney" Method="proc_rpt_DashboardNorthSydney">
+    <Parameter Name="ReportStart" Parameter="reportStart" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="ReportEnd" Parameter="reportEnd" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="TeamLeaderName" Parameter="teamLeaderName" Type="System.String" DbType="VarChar(80)" />
+    <ElementType Name="proc_rpt_DashboardNorthSydneyResult">
+      <Column Name="ListBy" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Order]" Member="Order" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ResultSet" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="Pipeline" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Recognise" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Qualify" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Contact" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Discover" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Respond" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Agree" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Process" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Due" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Quoted" Type="System.Decimal" DbType="Decimal(0,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Actual" Type="System.Decimal" DbType="Decimal(0,0) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_web_FollowUpsSummary" Method="sp_web_FollowUpsSummary">
+    <Parameter Name="AccountExecutiveID" Parameter="accountExecutiveID" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="FollowUpsCount" Parameter="followUpsCount" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="FollowUpsOverdue" Parameter="followUpsOverdue" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="SubmittedCount" Parameter="submittedCount" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="SubmittedAmount" Parameter="submittedAmount" Type="System.Decimal" DbType="Money" Direction="InOut" />
+    <Parameter Name="SubmittedOverdue" Parameter="submittedOverdue" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_web_FollowUpsMatrix" Method="sp_web_FollowUpsMatrix">
+    <Parameter Name="AccountExecutiveID" Parameter="accountExecutiveID" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="ActionNames" Parameter="actionNames" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="CutOffDate" Parameter="cutOffDate" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="OnlyInPipeLine" Parameter="onlyInPipeLine" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="sp_web_FollowUpsMatrixResult">
+      <Column Name="AccountExecutiveID" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="NoOppo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Estimated" Type="System.Decimal" DbType="Decimal(38,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Quoted" Type="System.Decimal" DbType="Decimal(38,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Actual" Type="System.Decimal" DbType="Decimal(38,2) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_web_SharedFollowUps" Method="sp_web_SharedFollowUps">
+    <Parameter Name="AccountExecutiveID" Parameter="accountExecutiveID" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="EstimatedIncomeID" Parameter="estimatedIncomeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BusinessTypeID" Parameter="businessTypeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Flagged" Parameter="flagged" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Action" Parameter="action" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="CutOffDate" Parameter="cutOffDate" Type="System.String" DbType="VarChar(100)" />
+    <ElementType Name="sp_web_SharedFollowUpsResult">
+      <Column Name="ClientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ClientName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="SharedWithAccountExecutiveID" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="OpportunityID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OpportunityName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="BusinessTypeName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Flagged" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Added" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="OpportunityDue" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="FollowUpDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="StatusName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Action" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="OutcomeType" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="ClassificationName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_web_AssignQueue" Method="sp_web_AssignQueue">
+    <Parameter Name="AssignFromAccountExecutiveID" Parameter="assignFromAccountExecutiveID" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="AssignedToAccountExecutiveID" Parameter="assignedToAccountExecutiveID" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="OpportunityIDs" Parameter="opportunityIDs" Type="System.String" DbType="Text" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_web_ShareQueue" Method="sp_web_ShareQueue">
+    <Parameter Name="ShareFromAccountExecutiveID" Parameter="shareFromAccountExecutiveID" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="SharedToAccountExecutiveID" Parameter="sharedToAccountExecutiveID" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="OpportunityIDs" Parameter="opportunityIDs" Type="System.String" DbType="Text" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_web_FollowUps" Method="sp_web_FollowUps">
+    <Parameter Name="AccountExecutiveID" Parameter="accountExecutiveID" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="EstimatedIncomeID" Parameter="estimatedIncomeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BusinessTypeID" Parameter="businessTypeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Flagged" Parameter="flagged" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Action" Parameter="action" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="FilteredRegion" Parameter="filteredRegion" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="FilteredBranch" Parameter="filteredBranch" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="IsAll" Parameter="isAll" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="sp_web_FollowUpsResult">
+      <Column Name="ClientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ClientName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="SharedWithAccountExecutiveID" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="AccountExecutiveID" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="OpportunityID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OpportunityName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="NetBrokerageEstimated" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NetBrokerageQuoted" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NetBrokerageActual" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="BusinessTypeName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Flagged" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Added" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="OpportunityDue" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="FollowUpDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="StatusName" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Action" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="OutcomeType" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="ClassificationName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Region" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.proc_rpt_DashboardTotals" Method="proc_rpt_DashboardTotals">
+    <Parameter Name="ReportStart" Parameter="reportStart" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="ReportEnd" Parameter="reportEnd" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="Region" Parameter="region" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Branch" Parameter="branch" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="BusinessTypeID" Parameter="businessTypeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ClassificationID" Parameter="classificationID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SourceDelimitedList" Parameter="sourceDelimitedList" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="ANZSICDelimitedList" Parameter="aNZSICDelimitedList" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="OpportunitiesDelimitedList" Parameter="opportunitiesDelimitedList" Type="System.String" DbType="VarChar(MAX)" />
+    <ElementType Name="proc_rpt_DashboardTotalsResult">
+      <Column Name="ListByID" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="ListBy" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="[Order]" Member="Order" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ResultSet" Type="System.String" DbType="VarChar(9) NOT NULL" CanBeNull="false" />
+      <Column Name="Pipeline" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Recognise" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Qualify" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Contact" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Discover" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Respond" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Agree" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Process" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Due" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Quoted" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Actual" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.proc_rpt_DashboardDetail" Method="proc_rpt_DashboardDetail">
+    <Parameter Name="ReportStart" Parameter="reportStart" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="ReportEnd" Parameter="reportEnd" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="AccountExecutiveID" Parameter="accountExecutiveID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="BusinessTypeID" Parameter="businessTypeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ClassificationID" Parameter="classificationID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SourceDelimitedList" Parameter="sourceDelimitedList" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="ANZSICDelimitedList" Parameter="aNZSICDelimitedList" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="ActionSet" Parameter="actionSet" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ResultSet" Parameter="resultSet" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="OpportunitiesDelimitedList" Parameter="opportunitiesDelimitedList" Type="System.String" DbType="VarChar(MAX)" />
+    <ElementType Name="proc_rpt_DashboardDetailResult">
+      <Column Name="AccountExecutiveID" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OpportunityID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ActivityID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ClientName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Opportunity" Type="System.String" DbType="VarChar(283)" CanBeNull="true" />
+      <Column Name="OpportunityDue" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="NextDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="NetBrokerage" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Added" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ResultGroupBy" Type="System.String" DbType="VarChar(42) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.proc_rpt_Tallyboard" Method="proc_rpt_Tallyboard">
+    <Parameter Name="ReportStart" Parameter="reportStart" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="ReportEnd" Parameter="reportEnd" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="Region" Parameter="region" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Branch" Parameter="branch" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="AccountExecutiveID" Parameter="accountExecutiveID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="BusinessTypeID" Parameter="businessTypeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ClassificationID" Parameter="classificationID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SourceDelimitedList" Parameter="sourceDelimitedList" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="ANZSICDelimitedList" Parameter="aNZSICDelimitedList" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="OpportunitiesDelimitedList" Parameter="opportunitiesDelimitedList" Type="System.String" DbType="VarChar(MAX)" />
+    <ElementType Name="proc_rpt_TallyboardResult">
+      <Column Name="TallyFor" Type="System.String" DbType="NVarChar(309)" CanBeNull="true" />
+      <Column Name="Activities" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Clients" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Opportunities" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.proc_rpt_Dashboard" Method="proc_rpt_Dashboard">
+    <Parameter Name="ReportStart" Parameter="reportStart" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="ReportEnd" Parameter="reportEnd" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="Region" Parameter="region" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Branch" Parameter="branch" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="AccountExecutiveID" Parameter="accountExecutiveID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="BusinessTypeID" Parameter="businessTypeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ClassificationID" Parameter="classificationID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SourceDelimitedList" Parameter="sourceDelimitedList" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="ANZSICDelimitedList" Parameter="aNZSICDelimitedList" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="OpportunitiesDelimitedList" Parameter="opportunitiesDelimitedList" Type="System.String" DbType="VarChar(MAX)" />
+    <ElementType Name="proc_rpt_DashboardResult">
+      <Column Name="Action" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="PreviousStatusID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FollowUps" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FollowUpsQuoted" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="FollowUpsActual" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="Activities" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActivitiesQuoted" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="ActivitiesActual" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="PipelineOutcomes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PipelineQuoted" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="PipelineActual" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="SuccessOutcomes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompleteOutcomes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ToWinQuoted" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="LostQuoted" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="WonActual" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="DueOutcomes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DueQuoted" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="DueActual" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_web_ListOpportunityActiveActivities" Method="sp_web_ListOpportunityActiveActivities">
+    <Parameter Name="OpportunityID" Parameter="opportunityID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_web_ListOpportunityActiveActivitiesResult">
+      <Column Name="ActivityID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StatusDescription" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Added" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ActivityNote" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Action" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Modified" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AddedBy" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

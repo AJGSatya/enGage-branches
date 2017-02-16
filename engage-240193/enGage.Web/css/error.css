@@ -1,0 +1,19 @@
+﻿body
+{
+	text-align: center;
+}
+
+.error-text
+{
+	color: Red;
+	font-family: Verdana;
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+.advanced-error-text
+{
+	color: #D25D00;
+	font-family: Verdana;
+	font-size: 8pt;
+}

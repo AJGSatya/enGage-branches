@@ -1,0 +1,2363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="DummyDataSource">
+      <rd:DataSourceID>11838df3-76b5-4e88-bad0-689ac2f29969</rd:DataSourceID>
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+    </DataSource>
+  </DataSources>
+  <InteractiveHeight>21cm</InteractiveHeight>
+  <ReportParameters>
+    <ReportParameter Name="parDateFrom">
+      <DataType>DateTime</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Report_Parameter_0</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="parDateTo">
+      <DataType>DateTime</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Report_Parameter_1</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="parRegion">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Report_Parameter_2</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="parBranch">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Report_Parameter_3</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="parExecutive">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Report_Parameter_8</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="parClassification">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Report_Parameter_4</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="parBusinessType">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Report_Parameter_5</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="parIndustries">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Report_Parameter_6</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="parSources">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Report_Parameter_7</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="parReportLabel">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Report_Parameter_9</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>29.7cm</InteractiveWidth>
+  <rd:GridSpacing>0.25cm</rd:GridSpacing>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <RightMargin>1.5cm</RightMargin>
+  <LeftMargin>1.5cm</LeftMargin>
+  <BottomMargin>1.5cm</BottomMargin>
+  <rd:ReportID>610e36d5-135f-468d-8f59-70c82a2e037d</rd:ReportID>
+  <EmbeddedImages>
+    <EmbeddedImage Name="headername">
+      <MIMEType>image/gif</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="headerlogo">
+      <MIMEType>image/gif</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <PageWidth>29.7cm</PageWidth>
+  <DataSets>
+    <DataSet Name="proc_rpt_DashboardResult">
+      <Fields>
+        <Field Name="Action">
+          <DataField>Action</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PreviousStatusID">
+          <DataField>PreviousStatusID</DataField>
+          <rd:TypeName>System.Nullable`1[System.Int32]</rd:TypeName>
+        </Field>
+        <Field Name="FollowUps">
+          <DataField>FollowUps</DataField>
+          <rd:TypeName>System.Nullable`1[System.Int32]</rd:TypeName>
+        </Field>
+        <Field Name="FollowUpsQuoted">
+          <DataField>FollowUpsQuoted</DataField>
+          <rd:TypeName>System.Nullable`1[System.Decimal]</rd:TypeName>
+        </Field>
+        <Field Name="FollowUpsActual">
+          <DataField>FollowUpsActual</DataField>
+          <rd:TypeName>System.Nullable`1[System.Decimal]</rd:TypeName>
+        </Field>
+        <Field Name="Activities">
+          <DataField>Activities</DataField>
+          <rd:TypeName>System.Nullable`1[System.Int32]</rd:TypeName>
+        </Field>
+        <Field Name="ActivitiesQuoted">
+          <DataField>ActivitiesQuoted</DataField>
+          <rd:TypeName>System.Nullable`1[System.Decimal]</rd:TypeName>
+        </Field>
+        <Field Name="ActivitiesActual">
+          <DataField>ActivitiesActual</DataField>
+          <rd:TypeName>System.Nullable`1[System.Decimal]</rd:TypeName>
+        </Field>
+        <Field Name="PipelineOutcomes">
+          <DataField>PipelineOutcomes</DataField>
+          <rd:TypeName>System.Nullable`1[System.Int32]</rd:TypeName>
+        </Field>
+        <Field Name="PipelineQuoted">
+          <DataField>PipelineQuoted</DataField>
+          <rd:TypeName>System.Nullable`1[System.Decimal]</rd:TypeName>
+        </Field>
+        <Field Name="PipelineActual">
+          <DataField>PipelineActual</DataField>
+          <rd:TypeName>System.Nullable`1[System.Decimal]</rd:TypeName>
+        </Field>
+        <Field Name="SuccessOutcomes">
+          <DataField>SuccessOutcomes</DataField>
+          <rd:TypeName>System.Nullable`1[System.Int32]</rd:TypeName>
+        </Field>
+        <Field Name="CompleteOutcomes">
+          <DataField>CompleteOutcomes</DataField>
+          <rd:TypeName>System.Nullable`1[System.Int32]</rd:TypeName>
+        </Field>
+        <Field Name="ToWinQuoted">
+          <DataField>ToWinQuoted</DataField>
+          <rd:TypeName>System.Nullable`1[System.Decimal]</rd:TypeName>
+        </Field>
+        <Field Name="LostQuoted">
+          <DataField>LostQuoted</DataField>
+          <rd:TypeName>System.Nullable`1[System.Decimal]</rd:TypeName>
+        </Field>
+        <Field Name="WonActual">
+          <DataField>WonActual</DataField>
+          <rd:TypeName>System.Nullable`1[System.Decimal]</rd:TypeName>
+        </Field>
+        <Field Name="DueOutcomes">
+          <DataField>DueOutcomes</DataField>
+          <rd:TypeName>System.Nullable`1[System.Int32]</rd:TypeName>
+        </Field>
+        <Field Name="DueQuoted">
+          <DataField>DueQuoted</DataField>
+          <rd:TypeName>System.Nullable`1[System.Decimal]</rd:TypeName>
+        </Field>
+        <Field Name="DueActual">
+          <DataField>DueActual</DataField>
+          <rd:TypeName>System.Nullable`1[System.Decimal]</rd:TypeName>
+        </Field>
+        <Field Name="Phase">
+          <DataField>Phase</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DummyDataSource</DataSourceName>
+        <CommandText />
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <rd:DataSetInfo>
+        <rd:ObjectDataSourceType>enGage.DL.enGageDataContext, enGage.DL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:ObjectDataSourceSelectMethod>proc_rpt_Dashboard</rd:ObjectDataSourceSelectMethod>
+        <rd:ObjectDataSourceSelectMethodSignature>System.Data.Linq.ISingleResult`1[enGage.DL.proc_rpt_DashboardResult] proc_rpt_Dashboard(System.Nullable`1[System.DateTime], System.Nullable`1[System.DateTime], System.String, System.String, System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String, System.String, System.String)</rd:ObjectDataSourceSelectMethodSignature>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <Width>26cm</Width>
+  <Body>
+    <ColumnSpacing>1cm</ColumnSpacing>
+    <ReportItems>
+      <Table Name="table1">
+        <ZIndex>2</ZIndex>
+        <DataSetName>proc_rpt_DashboardResult</DataSetName>
+        <Top>1.5cm</Top>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Action_1">
+                      <rd:DefaultName>Action_1</rd:DefaultName>
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Left>Solid</Left>
+                          <Right>None</Right>
+                          <Bottom>=iif(Fields!Phase.Value="Qualifying" or Fields!Phase.Value="completing","Double","Solid")</Bottom>
+                        </BorderStyle>
+                        <BorderWidth>
+                          <Bottom>=iif(Fields!Phase.Value="Qualifying" or Fields!Phase.Value="completing","2pt","1pt")</Bottom>
+                        </BorderWidth>
+                        <FontFamily>Verdana</FontFamily>
+                        <PaddingLeft>6pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Phase.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Activities_2">
+                      <rd:DefaultName>Activities_2</rd:DefaultName>
+                      <Action>
+                        <Drillthrough>
+                          <ReportName>=iif(Parameters!parExecutive.Value="(All)",FALSE,"DashboardDetails")</ReportName>
+                          <Parameters>
+                            <Parameter Name="parDateFrom">
+                              <Value>=Parameters!parDateFrom.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parDateTo">
+                              <Value>=Parameters!parDateTo.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parExecutive">
+                              <Value>=Parameters!parExecutive.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parClassification">
+                              <Value>=Parameters!parClassification.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parBusinessType">
+                              <Value>=Parameters!parBusinessType.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parIndustries">
+                              <Value>=Parameters!parIndustries.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parSources">
+                              <Value>=Parameters!parSources.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parActionSet">
+                              <Value>=Fields!Phase.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parRecordSet">
+                              <Value>="Activity"</Value>
+                            </Parameter>
+                            <Parameter Name="parReportLabel">
+                              <Value>=Parameters!parReportLabel.Value</Value>
+                            </Parameter>
+                          </Parameters>
+                        </Drillthrough>
+                      </Action>
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                          <Right>#d3d2c4</Right>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Left>Solid</Left>
+                          <Right>Double</Right>
+                          <Bottom>=iif(Fields!Phase.Value="Qualifying" or Fields!Phase.Value="Completing","Double","Solid")</Bottom>
+                        </BorderStyle>
+                        <BorderWidth>
+                          <Right>2pt</Right>
+                          <Bottom>=iif(Fields!Phase.Value="Qualifying" or Fields!Phase.Value="Completing","2pt","1pt")</Bottom>
+                        </BorderWidth>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>11pt</FontSize>
+                        <FontWeight>700</FontWeight>
+                        <Format>g</Format>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Activities.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="FollowUps_2">
+                      <rd:DefaultName>FollowUps_2</rd:DefaultName>
+                      <Action>
+                        <Drillthrough>
+                          <ReportName>=iif(Parameters!parExecutive.Value="(All)",FALSE,"DashboardDetails")</ReportName>
+                          <Parameters>
+                            <Parameter Name="parDateFrom">
+                              <Value>=Parameters!parDateFrom.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parDateTo">
+                              <Value>=Parameters!parDateTo.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parExecutive">
+                              <Value>=Parameters!parExecutive.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parClassification">
+                              <Value>=Parameters!parClassification.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parBusinessType">
+                              <Value>=Parameters!parBusinessType.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parIndustries">
+                              <Value>=Parameters!parIndustries.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parSources">
+                              <Value>=Parameters!parSources.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parActionSet">
+                              <Value>=Fields!Phase.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parRecordSet">
+                              <Value>="Follow-up"</Value>
+                            </Parameter>
+                            <Parameter Name="parReportLabel">
+                              <Value>=Parameters!parReportLabel.Value</Value>
+                            </Parameter>
+                          </Parameters>
+                        </Drillthrough>
+                      </Action>
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Left>Solid</Left>
+                          <Bottom>=iif(Fields!Phase.Value="Qualifying" or Fields!Phase.Value="Completing","Double","Solid")</Bottom>
+                        </BorderStyle>
+                        <BorderWidth>
+                          <Bottom>=iif(Fields!Phase.Value="Qualifying" or Fields!Phase.Value="Completing","2pt","1pt")</Bottom>
+                        </BorderWidth>
+                        <FontFamily>Verdana</FontFamily>
+                        <Format>g</Format>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!FollowUps.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox11">
+                      <rd:DefaultName>textbox11</rd:DefaultName>
+                      <Style>
+                        <Color>#00467f</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                          <Left>#d3d2c4</Left>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Left>Solid</Left>
+                          <Bottom>=iif(Fields!Phase.Value="Qualifying" or Fields!Phase.Value="Completing","Double","Solid")</Bottom>
+                        </BorderStyle>
+                        <BorderWidth>
+                          <Bottom>=iif(Fields!Phase.Value="Qualifying" or Fields!Phase.Value="Completing","2pt","1pt")</Bottom>
+                        </BorderWidth>
+                        <FontFamily>Verdana</FontFamily>
+                        <PaddingLeft>6pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=iif(Fields!Phase.Value="Recognise","Identified",iif(Fields!Phase.Value="Qualify","Qualified-in",iif(Fields!Phase.Value="Contact","Interested",iif(Fields!Phase.Value="Discover","Go-to-Market",iif(Fields!Phase.Value="Respond","Quoted",iif(Fields!Phase.Value="Agree","Accepted",iif(Fields!Phase.Value="Process","Processed","")))))))</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="PipelineOutcomes_1">
+                      <rd:DefaultName>PipelineOutcomes_1</rd:DefaultName>
+                      <Action>
+                        <Drillthrough>
+                          <ReportName>=iif(Parameters!parExecutive.Value="(All)",FALSE,"DashboardDetails")</ReportName>
+                          <Parameters>
+                            <Parameter Name="parDateFrom">
+                              <Value>=Parameters!parDateFrom.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parDateTo">
+                              <Value>=Parameters!parDateTo.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parExecutive">
+                              <Value>=Parameters!parExecutive.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parClassification">
+                              <Value>=Parameters!parClassification.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parBusinessType">
+                              <Value>=Parameters!parBusinessType.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parIndustries">
+                              <Value>=Parameters!parIndustries.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parSources">
+                              <Value>=Parameters!parSources.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parActionSet">
+                              <Value>=Fields!Phase.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parRecordSet">
+                              <Value>="Pipeline"</Value>
+                            </Parameter>
+                            <Parameter Name="parReportLabel">
+                              <Value>=Parameters!parReportLabel.Value</Value>
+                            </Parameter>
+                          </Parameters>
+                        </Drillthrough>
+                      </Action>
+                      <Style>
+                        <Color>#00467f</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Bottom>=iif(Fields!Phase.Value="Qualifying" or Fields!Phase.Value="Completing","Double","Solid")</Bottom>
+                        </BorderStyle>
+                        <BorderWidth>
+                          <Bottom>=iif(Fields!Phase.Value="Qualifying" or Fields!Phase.Value="Completing","2pt","1pt")</Bottom>
+                        </BorderWidth>
+                        <FontFamily>Verdana</FontFamily>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!PipelineOutcomes.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="SuccessOutcomes_1">
+                      <rd:DefaultName>SuccessOutcomes_1</rd:DefaultName>
+                      <Action>
+                        <Drillthrough>
+                          <ReportName>=iif(Parameters!parExecutive.Value="(All)",FALSE,"DashboardDetails")</ReportName>
+                          <Parameters>
+                            <Parameter Name="parDateFrom">
+                              <Value>=Parameters!parDateFrom.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parDateTo">
+                              <Value>=Parameters!parDateTo.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parExecutive">
+                              <Value>=Parameters!parExecutive.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parClassification">
+                              <Value>=Parameters!parClassification.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parBusinessType">
+                              <Value>=Parameters!parBusinessType.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parIndustries">
+                              <Value>=Parameters!parIndustries.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parSources">
+                              <Value>=Parameters!parSources.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parActionSet">
+                              <Value>=Fields!Phase.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parRecordSet">
+                              <Value>="Success"</Value>
+                            </Parameter>
+                            <Parameter Name="parReportLabel">
+                              <Value>=Parameters!parReportLabel.Value</Value>
+                            </Parameter>
+                          </Parameters>
+                        </Drillthrough>
+                      </Action>
+                      <Style>
+                        <Color>#00467f</Color>
+                        <BackgroundColor>#d3d2c4</BackgroundColor>
+                        <BorderColor>
+                          <Default>White</Default>
+                          <Left>#d3d2c4</Left>
+                          <Bottom>=iif(Fields!Phase.Value="Qualifying" or Fields!Phase.Value="Completing","#d3d2c4","White")</Bottom>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Bottom>=iif(Fields!Phase.Value="Qualifying" or Fields!Phase.Value="Completing","Double","Solid")</Bottom>
+                        </BorderStyle>
+                        <BorderWidth>
+                          <Bottom>=iif(Fields!Phase.Value="Qualifying" or Fields!Phase.Value="Completing","2pt","1pt")</Bottom>
+                        </BorderWidth>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>=iif(Fields!Phase.Value="Process","9pt","11pt")</FontSize>
+                        <FontWeight>=iif(Fields!Phase.Value="Process","Normal","Bold")</FontWeight>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!SuccessOutcomes.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="CompleteOutcomes_1">
+                      <rd:DefaultName>CompleteOutcomes_1</rd:DefaultName>
+                      <Action>
+                        <Drillthrough>
+                          <ReportName>=iif(Parameters!parExecutive.Value="(All)",FALSE,"DashboardDetails")</ReportName>
+                          <Parameters>
+                            <Parameter Name="parDateFrom">
+                              <Value>=Parameters!parDateFrom.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parDateTo">
+                              <Value>=Parameters!parDateTo.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parExecutive">
+                              <Value>=Parameters!parExecutive.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parClassification">
+                              <Value>=Parameters!parClassification.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parBusinessType">
+                              <Value>=Parameters!parBusinessType.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parIndustries">
+                              <Value>=Parameters!parIndustries.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parSources">
+                              <Value>=Parameters!parSources.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parActionSet">
+                              <Value>=Fields!Phase.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parRecordSet">
+                              <Value>="Complete"</Value>
+                            </Parameter>
+                            <Parameter Name="parReportLabel">
+                              <Value>=Parameters!parReportLabel.Value</Value>
+                            </Parameter>
+                          </Parameters>
+                        </Drillthrough>
+                      </Action>
+                      <Style>
+                        <Color>#00467f</Color>
+                        <BackgroundColor>#d3d2c4</BackgroundColor>
+                        <BorderColor>
+                          <Default>White</Default>
+                          <Right>#d3d2c4</Right>
+                          <Bottom>=iif(Fields!Phase.Value="Qualifying" or Fields!Phase.Value="Completing","#d3d2c4","White")</Bottom>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Bottom>=iif(Fields!Phase.Value="Qualifying" or Fields!Phase.Value="Completing","Double","Solid")</Bottom>
+                        </BorderStyle>
+                        <BorderWidth>
+                          <Bottom>=iif(Fields!Phase.Value="Qualifying" or Fields!Phase.Value="Completing","2pt","1pt")</Bottom>
+                        </BorderWidth>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>=iif(Fields!Phase.Value="Process","11pt","9pt")</FontSize>
+                        <FontWeight>=iif(Fields!Phase.Value="Process","Bold","Normal")</FontWeight>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!CompleteOutcomes.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="DueOutcomes_1">
+                      <rd:DefaultName>DueOutcomes_1</rd:DefaultName>
+                      <Action>
+                        <Drillthrough>
+                          <ReportName>=iif(Parameters!parExecutive.Value="(All)",FALSE,"DashboardDetails")</ReportName>
+                          <Parameters>
+                            <Parameter Name="parDateFrom">
+                              <Value>=Parameters!parDateFrom.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parDateTo">
+                              <Value>=Parameters!parDateTo.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parExecutive">
+                              <Value>=Parameters!parExecutive.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parClassification">
+                              <Value>=Parameters!parClassification.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parBusinessType">
+                              <Value>=Parameters!parBusinessType.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parIndustries">
+                              <Value>=Parameters!parIndustries.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parSources">
+                              <Value>=Parameters!parSources.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parActionSet">
+                              <Value>=Fields!Phase.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parRecordSet">
+                              <Value>="Due"</Value>
+                            </Parameter>
+                            <Parameter Name="parReportLabel">
+                              <Value>=Parameters!parReportLabel.Value</Value>
+                            </Parameter>
+                          </Parameters>
+                        </Drillthrough>
+                      </Action>
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Bottom>=iif(Fields!Phase.Value="Qualifying" or Fields!Phase.Value="Completing","Double","Solid")</Bottom>
+                        </BorderStyle>
+                        <BorderWidth>
+                          <Bottom>=iif(Fields!Phase.Value="Qualifying" or Fields!Phase.Value="Completing","2pt","1pt")</Bottom>
+                        </BorderWidth>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>9pt</FontSize>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!DueOutcomes.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>1.2cm</Height>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <Style>
+          <BorderColor>
+            <Default>#d3d2c4</Default>
+          </BorderColor>
+          <BorderStyle>
+            <Bottom>Double</Bottom>
+          </BorderStyle>
+          <BorderWidth>
+            <Bottom>2pt</Bottom>
+          </BorderWidth>
+          <FontFamily>Verdana</FontFamily>
+        </Style>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ColSpan>3</ColSpan>
+                  <ReportItems>
+                    <Textbox Name="textbox1">
+                      <rd:DefaultName>textbox1</rd:DefaultName>
+                      <Style>
+                        <Color>White</Color>
+                        <BackgroundColor>#5f6062</BackgroundColor>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                          <Left>#d3d2c4</Left>
+                          <Right>#d3d2c4</Right>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Right>None</Right>
+                        </BorderStyle>
+                        <BorderWidth>
+                          <Right>2pt</Right>
+                        </BorderWidth>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>12pt</FontSize>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Activities</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ColSpan>5</ColSpan>
+                  <ReportItems>
+                    <Textbox Name="textbox3">
+                      <rd:DefaultName>textbox3</rd:DefaultName>
+                      <Style>
+                        <Color>White</Color>
+                        <BackgroundColor>#5f6062</BackgroundColor>
+                        <BorderColor>
+                          <Default>#5f6062</Default>
+                          <Left>#5f6062</Left>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Left>Double</Left>
+                        </BorderStyle>
+                        <BorderWidth>
+                          <Left>2pt</Left>
+                        </BorderWidth>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>12pt</FontSize>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Opportunity Pipeline</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.7cm</Height>
+            </TableRow>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox47">
+                      <rd:DefaultName>textbox47</rd:DefaultName>
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                          <Left>#d3d2c4</Left>
+                          <Right>#d3d2c4</Right>
+                          <Top>#d3d2c4</Top>
+                          <Bottom>White</Bottom>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontWeight>700</FontWeight>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox49">
+                      <rd:DefaultName>textbox49</rd:DefaultName>
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                          <Left>#d3d2c4</Left>
+                          <Right>#d3d2c4</Right>
+                          <Top>#d3d2c4</Top>
+                          <Bottom>White</Bottom>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                          <Right>Double</Right>
+                        </BorderStyle>
+                        <BorderWidth>
+                          <Right>2pt</Right>
+                        </BorderWidth>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontWeight>700</FontWeight>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Activities</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox48">
+                      <rd:DefaultName>textbox48</rd:DefaultName>
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                          <Left>#d3d2c4</Left>
+                          <Right>#d3d2c4</Right>
+                          <Top>#d3d2c4</Top>
+                          <Bottom>White</Bottom>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontWeight>700</FontWeight>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Follow-ups</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox51">
+                      <rd:DefaultName>textbox51</rd:DefaultName>
+                      <Style>
+                        <Color>#00467f</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                          <Left>#d3d2c4</Left>
+                          <Right>#d3d2c4</Right>
+                          <Top>#d3d2c4</Top>
+                          <Bottom>White</Bottom>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontWeight>700</FontWeight>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox52">
+                      <rd:DefaultName>textbox52</rd:DefaultName>
+                      <Style>
+                        <Color>#00467f</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                          <Left>#d3d2c4</Left>
+                          <Right>#d3d2c4</Right>
+                          <Top>#d3d2c4</Top>
+                          <Bottom>White</Bottom>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontWeight>700</FontWeight>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Future</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ColSpan>2</ColSpan>
+                  <ReportItems>
+                    <Textbox Name="textbox53">
+                      <rd:DefaultName>textbox53</rd:DefaultName>
+                      <Style>
+                        <Color>#00467f</Color>
+                        <BackgroundColor>#d3d2c4</BackgroundColor>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                          <Left>#d3d2c4</Left>
+                          <Right>#d3d2c4</Right>
+                          <Top>#d3d2c4</Top>
+                          <Bottom>White</Bottom>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontWeight>700</FontWeight>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Current Period</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox55">
+                      <rd:DefaultName>textbox55</rd:DefaultName>
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                          <Left>#d3d2c4</Left>
+                          <Right>#d3d2c4</Right>
+                          <Top>#d3d2c4</Top>
+                          <Bottom>White</Bottom>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                          <Right>Solid</Right>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontWeight>700</FontWeight>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Past</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>1cm</Height>
+            </TableRow>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox4">
+                      <rd:DefaultName>textbox4</rd:DefaultName>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox5">
+                      <rd:DefaultName>textbox5</rd:DefaultName>
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                          <Left>White</Left>
+                          <Right>#d3d2c4</Right>
+                          <Bottom>#d3d2c4</Bottom>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                          <Right>Double</Right>
+                          <Top>None</Top>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <BorderWidth>
+                          <Right>2pt</Right>
+                        </BorderWidth>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Completed</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox6">
+                      <rd:DefaultName>textbox6</rd:DefaultName>
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                          <Left>#d3d2c4</Left>
+                          <Right>#d3d2c4</Right>
+                          <Top>#d3d2c4</Top>
+                          <Bottom>#d3d2c4</Bottom>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Right>Solid</Right>
+                          <Top>None</Top>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Overdue</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox14">
+                      <rd:DefaultName>textbox14</rd:DefaultName>
+                      <Style>
+                        <Color>#00467f</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                          <Left>#d3d2c4</Left>
+                          <Right>#d3d2c4</Right>
+                          <Top>#d3d2c4</Top>
+                          <Bottom>White</Bottom>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox17">
+                      <rd:DefaultName>textbox17</rd:DefaultName>
+                      <Style>
+                        <Color>#00467f</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                          <Left>#d3d2c4</Left>
+                          <Right>#d3d2c4</Right>
+                          <Top>#d3d2c4</Top>
+                          <Bottom>White</Bottom>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>On-the-go</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox23">
+                      <rd:DefaultName>textbox23</rd:DefaultName>
+                      <Style>
+                        <Color>#00467f</Color>
+                        <BackgroundColor>#d3d2c4</BackgroundColor>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                          <Left>#d3d2c4</Left>
+                          <Right>White</Right>
+                          <Top>#d3d2c4</Top>
+                          <Bottom>White</Bottom>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                          <Right>Solid</Right>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <BorderWidth>
+                          <Bottom>1pt</Bottom>
+                        </BorderWidth>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>On-the-go</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox54">
+                      <rd:DefaultName>textbox54</rd:DefaultName>
+                      <Style>
+                        <Color>#00467f</Color>
+                        <BackgroundColor>#d3d2c4</BackgroundColor>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                          <Left>White</Left>
+                          <Right>#d3d2c4</Right>
+                          <Top>#d3d2c4</Top>
+                          <Bottom>White</Bottom>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Complete</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox56">
+                      <rd:DefaultName>textbox56</rd:DefaultName>
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                          <Left>#d3d2c4</Left>
+                          <Right>#d3d2c4</Right>
+                          <Top>#d3d2c4</Top>
+                          <Bottom>White</Bottom>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                          <Right>Solid</Right>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Incomplete</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.5cm</Height>
+            </TableRow>
+          </TableRows>
+        </Header>
+        <TableColumns>
+          <TableColumn>
+            <Width>4cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>3cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>3cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>4cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>3cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>3cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>3cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>3cm</Width>
+          </TableColumn>
+        </TableColumns>
+        <Height>6.4cm</Height>
+        <Footer>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox7">
+                      <rd:DefaultName>textbox7</rd:DefaultName>
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Left>Solid</Left>
+                          <Right>None</Right>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>6pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Expected OAMPS income</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox12">
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Right>Double</Right>
+                        </BorderStyle>
+                        <BorderWidth>
+                          <Right>2pt</Right>
+                        </BorderWidth>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <TextAlign>Center</TextAlign>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>win</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox9">
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <TextAlign>Center</TextAlign>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>win</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox18">
+                      <rd:DefaultName>textbox18</rd:DefaultName>
+                      <Style>
+                        <Color>#00467f</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>6pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Expected OAMPS income</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox21">
+                      <rd:DefaultName>textbox21</rd:DefaultName>
+                      <Style>
+                        <Color>#00467f</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <TextAlign>Center</TextAlign>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>win</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox24">
+                      <rd:DefaultName>textbox24</rd:DefaultName>
+                      <Style>
+                        <Color>#00467f</Color>
+                        <BackgroundColor>#d3d2c4</BackgroundColor>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                          <Right>White</Right>
+                          <Top>White</Top>
+                          <Bottom>White</Bottom>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <TextAlign>Center</TextAlign>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>to win</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox26">
+                      <rd:DefaultName>textbox26</rd:DefaultName>
+                      <Style>
+                        <Color>#00467f</Color>
+                        <BackgroundColor>#d3d2c4</BackgroundColor>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                          <Left>White</Left>
+                          <Top>White</Top>
+                          <Bottom>White</Bottom>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <TextAlign>Center</TextAlign>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>lost</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox27">
+                      <rd:DefaultName>textbox27</rd:DefaultName>
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <TextAlign>Center</TextAlign>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>win</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.6cm</Height>
+            </TableRow>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox28">
+                      <rd:DefaultName>textbox28</rd:DefaultName>
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Left>Solid</Left>
+                          <Right>None</Right>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <PaddingLeft>6pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Quoted</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox30">
+                      <rd:DefaultName>textbox30</rd:DefaultName>
+                      <Action>
+                        <Drillthrough>
+                          <ReportName>=iif(Parameters!parExecutive.Value="(All)",FALSE,"DashboardDetails")</ReportName>
+                          <Parameters>
+                            <Parameter Name="parDateFrom">
+                              <Value>=Parameters!parDateFrom.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parDateTo">
+                              <Value>=Parameters!parDateTo.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parExecutive">
+                              <Value>=Parameters!parExecutive.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parClassification">
+                              <Value>=Parameters!parClassification.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parBusinessType">
+                              <Value>=Parameters!parBusinessType.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parIndustries">
+                              <Value>=Parameters!parIndustries.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parSources">
+                              <Value>=Parameters!parSources.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parActionSet">
+                              <Value>="Quoted"</Value>
+                            </Parameter>
+                            <Parameter Name="parRecordSet">
+                              <Value>="Activity"</Value>
+                            </Parameter>
+                            <Parameter Name="parReportLabel">
+                              <Value>=Parameters!parReportLabel.Value</Value>
+                            </Parameter>
+                          </Parameters>
+                        </Drillthrough>
+                      </Action>
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Right>Double</Right>
+                        </BorderStyle>
+                        <BorderWidth>
+                          <Right>2pt</Right>
+                        </BorderWidth>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontWeight>700</FontWeight>
+                        <Format>c0</Format>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Sum(Fields!ActivitiesQuoted.Value)</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox29">
+                      <rd:DefaultName>textbox29</rd:DefaultName>
+                      <Action>
+                        <Drillthrough>
+                          <ReportName>=iif(Parameters!parExecutive.Value="(All)",FALSE,"DashboardDetails")</ReportName>
+                          <Parameters>
+                            <Parameter Name="parDateFrom">
+                              <Value>=Parameters!parDateFrom.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parDateTo">
+                              <Value>=Parameters!parDateTo.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parExecutive">
+                              <Value>=Parameters!parExecutive.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parClassification">
+                              <Value>=Parameters!parClassification.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parBusinessType">
+                              <Value>=Parameters!parBusinessType.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parIndustries">
+                              <Value>=Parameters!parIndustries.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parSources">
+                              <Value>=Parameters!parSources.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parActionSet">
+                              <Value>="Quoted"</Value>
+                            </Parameter>
+                            <Parameter Name="parRecordSet">
+                              <Value>="Follow-up"</Value>
+                            </Parameter>
+                            <Parameter Name="parReportLabel">
+                              <Value>=Parameters!parReportLabel.Value</Value>
+                            </Parameter>
+                          </Parameters>
+                        </Drillthrough>
+                      </Action>
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <Format>c0</Format>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Sum(Fields!FollowUpsQuoted.Value)</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox32">
+                      <rd:DefaultName>textbox32</rd:DefaultName>
+                      <Style>
+                        <Color>#00467f</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <PaddingLeft>6pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Quoted</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox33">
+                      <rd:DefaultName>textbox33</rd:DefaultName>
+                      <Action>
+                        <Drillthrough>
+                          <ReportName>=iif(Parameters!parExecutive.Value="(All)",FALSE,"DashboardDetails")</ReportName>
+                          <Parameters>
+                            <Parameter Name="parDateFrom">
+                              <Value>=Parameters!parDateFrom.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parDateTo">
+                              <Value>=Parameters!parDateTo.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parExecutive">
+                              <Value>=Parameters!parExecutive.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parClassification">
+                              <Value>=Parameters!parClassification.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parBusinessType">
+                              <Value>=Parameters!parBusinessType.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parIndustries">
+                              <Value>=Parameters!parIndustries.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parSources">
+                              <Value>=Parameters!parSources.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parActionSet">
+                              <Value>="Quoted"</Value>
+                            </Parameter>
+                            <Parameter Name="parRecordSet">
+                              <Value>="Pipeline"</Value>
+                            </Parameter>
+                            <Parameter Name="parReportLabel">
+                              <Value>=Parameters!parReportLabel.Value</Value>
+                            </Parameter>
+                          </Parameters>
+                        </Drillthrough>
+                      </Action>
+                      <Style>
+                        <Color>#00467f</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <Format>c0</Format>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Sum(Fields!PipelineQuoted.Value)</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox34">
+                      <rd:DefaultName>textbox34</rd:DefaultName>
+                      <Action>
+                        <Drillthrough>
+                          <ReportName>=iif(Parameters!parExecutive.Value="(All)",FALSE,"DashboardDetails")</ReportName>
+                          <Parameters>
+                            <Parameter Name="parDateFrom">
+                              <Value>=Parameters!parDateFrom.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parDateTo">
+                              <Value>=Parameters!parDateTo.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parExecutive">
+                              <Value>=Parameters!parExecutive.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parClassification">
+                              <Value>=Parameters!parClassification.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parBusinessType">
+                              <Value>=Parameters!parBusinessType.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parIndustries">
+                              <Value>=Parameters!parIndustries.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parSources">
+                              <Value>=Parameters!parSources.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parActionSet">
+                              <Value>="Quoted"</Value>
+                            </Parameter>
+                            <Parameter Name="parRecordSet">
+                              <Value>="Success"</Value>
+                            </Parameter>
+                            <Parameter Name="parReportLabel">
+                              <Value>=Parameters!parReportLabel.Value</Value>
+                            </Parameter>
+                          </Parameters>
+                        </Drillthrough>
+                      </Action>
+                      <Style>
+                        <Color>#00467f</Color>
+                        <BackgroundColor>#d3d2c4</BackgroundColor>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                          <Right>White</Right>
+                          <Top>White</Top>
+                          <Bottom>White</Bottom>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Right>Solid</Right>
+                          <Top>Solid</Top>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontWeight>700</FontWeight>
+                        <Format>c0</Format>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Sum(Fields!ToWinQuoted.Value)</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox35">
+                      <rd:DefaultName>textbox35</rd:DefaultName>
+                      <Action>
+                        <Drillthrough>
+                          <ReportName>=iif(Parameters!parExecutive.Value="(All)",FALSE,"DashboardDetails")</ReportName>
+                          <Parameters>
+                            <Parameter Name="parDateFrom">
+                              <Value>=Parameters!parDateFrom.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parDateTo">
+                              <Value>=Parameters!parDateTo.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parExecutive">
+                              <Value>=Parameters!parExecutive.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parClassification">
+                              <Value>=Parameters!parClassification.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parBusinessType">
+                              <Value>=Parameters!parBusinessType.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parIndustries">
+                              <Value>=Parameters!parIndustries.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parSources">
+                              <Value>=Parameters!parSources.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parActionSet">
+                              <Value>="Quoted"</Value>
+                            </Parameter>
+                            <Parameter Name="parRecordSet">
+                              <Value>="Complete"</Value>
+                            </Parameter>
+                            <Parameter Name="parReportLabel">
+                              <Value>=Parameters!parReportLabel.Value</Value>
+                            </Parameter>
+                          </Parameters>
+                        </Drillthrough>
+                      </Action>
+                      <Style>
+                        <Color>#00467f</Color>
+                        <BackgroundColor>#d3d2c4</BackgroundColor>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                          <Left>White</Left>
+                          <Top>White</Top>
+                          <Bottom>White</Bottom>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Left>Solid</Left>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <Format>c0</Format>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Sum(Fields!LostQuoted.Value)</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox36">
+                      <rd:DefaultName>textbox36</rd:DefaultName>
+                      <Action>
+                        <Drillthrough>
+                          <ReportName>=iif(Parameters!parExecutive.Value="(All)",FALSE,"DashboardDetails")</ReportName>
+                          <Parameters>
+                            <Parameter Name="parDateFrom">
+                              <Value>=Parameters!parDateFrom.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parDateTo">
+                              <Value>=Parameters!parDateTo.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parExecutive">
+                              <Value>=Parameters!parExecutive.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parClassification">
+                              <Value>=Parameters!parClassification.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parBusinessType">
+                              <Value>=Parameters!parBusinessType.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parIndustries">
+                              <Value>=Parameters!parIndustries.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parSources">
+                              <Value>=Parameters!parSources.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parActionSet">
+                              <Value>="Quoted"</Value>
+                            </Parameter>
+                            <Parameter Name="parRecordSet">
+                              <Value>="Due"</Value>
+                            </Parameter>
+                            <Parameter Name="parReportLabel">
+                              <Value>=Parameters!parReportLabel.Value</Value>
+                            </Parameter>
+                          </Parameters>
+                        </Drillthrough>
+                      </Action>
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontWeight>700</FontWeight>
+                        <Format>c0</Format>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Sum(Fields!DueQuoted.Value)</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>1.2cm</Height>
+            </TableRow>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox2">
+                      <rd:DefaultName>textbox2</rd:DefaultName>
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Left>Solid</Left>
+                          <Right>None</Right>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <PaddingLeft>6pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Actual (Won)</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox13">
+                      <rd:DefaultName>textbox13</rd:DefaultName>
+                      <Action>
+                        <Drillthrough>
+                          <ReportName>=iif(Parameters!parExecutive.Value="(All)",FALSE,"DashboardDetails")</ReportName>
+                          <Parameters>
+                            <Parameter Name="parDateFrom">
+                              <Value>=Parameters!parDateFrom.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parDateTo">
+                              <Value>=Parameters!parDateTo.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parExecutive">
+                              <Value>=Parameters!parExecutive.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parClassification">
+                              <Value>=Parameters!parClassification.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parBusinessType">
+                              <Value>=Parameters!parBusinessType.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parIndustries">
+                              <Value>=Parameters!parIndustries.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parSources">
+                              <Value>=Parameters!parSources.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parActionSet">
+                              <Value>="Actual"</Value>
+                            </Parameter>
+                            <Parameter Name="parRecordSet">
+                              <Value>="Activity"</Value>
+                            </Parameter>
+                            <Parameter Name="parReportLabel">
+                              <Value>=Parameters!parReportLabel.Value</Value>
+                            </Parameter>
+                          </Parameters>
+                        </Drillthrough>
+                      </Action>
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Right>Double</Right>
+                        </BorderStyle>
+                        <BorderWidth>
+                          <Right>2pt</Right>
+                        </BorderWidth>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontWeight>700</FontWeight>
+                        <Format>c0</Format>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Sum(Fields!ActivitiesActual.Value)</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox10">
+                      <rd:DefaultName>textbox10</rd:DefaultName>
+                      <Action>
+                        <Drillthrough>
+                          <ReportName>=iif(Parameters!parExecutive.Value="(All)",FALSE,"DashboardDetails")</ReportName>
+                          <Parameters>
+                            <Parameter Name="parDateFrom">
+                              <Value>=Parameters!parDateFrom.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parDateTo">
+                              <Value>=Parameters!parDateTo.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parExecutive">
+                              <Value>=Parameters!parExecutive.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parClassification">
+                              <Value>=Parameters!parClassification.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parBusinessType">
+                              <Value>=Parameters!parBusinessType.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parIndustries">
+                              <Value>=Parameters!parIndustries.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parSources">
+                              <Value>=Parameters!parSources.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parActionSet">
+                              <Value>="Actual"</Value>
+                            </Parameter>
+                            <Parameter Name="parRecordSet">
+                              <Value>="Follow-up"</Value>
+                            </Parameter>
+                            <Parameter Name="parReportLabel">
+                              <Value>=Parameters!parReportLabel.Value</Value>
+                            </Parameter>
+                          </Parameters>
+                        </Drillthrough>
+                      </Action>
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <Format>c0</Format>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Sum(Fields!FollowUpsActual.Value)</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox19">
+                      <rd:DefaultName>textbox19</rd:DefaultName>
+                      <Style>
+                        <Color>#00467f</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <PaddingLeft>6pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Actual (Won)</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox20">
+                      <rd:DefaultName>textbox20</rd:DefaultName>
+                      <Action>
+                        <Drillthrough>
+                          <ReportName>=iif(Parameters!parExecutive.Value="(All)",FALSE,"DashboardDetails")</ReportName>
+                          <Parameters>
+                            <Parameter Name="parDateFrom">
+                              <Value>=Parameters!parDateFrom.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parDateTo">
+                              <Value>=Parameters!parDateTo.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parExecutive">
+                              <Value>=Parameters!parExecutive.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parClassification">
+                              <Value>=Parameters!parClassification.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parBusinessType">
+                              <Value>=Parameters!parBusinessType.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parIndustries">
+                              <Value>=Parameters!parIndustries.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parSources">
+                              <Value>=Parameters!parSources.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parActionSet">
+                              <Value>="Actual"</Value>
+                            </Parameter>
+                            <Parameter Name="parRecordSet">
+                              <Value>="Pipeline"</Value>
+                            </Parameter>
+                            <Parameter Name="parReportLabel">
+                              <Value>=Parameters!parReportLabel.Value</Value>
+                            </Parameter>
+                          </Parameters>
+                        </Drillthrough>
+                      </Action>
+                      <Style>
+                        <Color>#00467f</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <Format>c0</Format>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Sum(Fields!PipelineActual.Value)</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ColSpan>2</ColSpan>
+                  <ReportItems>
+                    <Textbox Name="textbox22">
+                      <rd:DefaultName>textbox22</rd:DefaultName>
+                      <Action>
+                        <Drillthrough>
+                          <ReportName>=iif(Parameters!parExecutive.Value="(All)",FALSE,"DashboardDetails")</ReportName>
+                          <Parameters>
+                            <Parameter Name="parDateFrom">
+                              <Value>=Parameters!parDateFrom.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parDateTo">
+                              <Value>=Parameters!parDateTo.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parExecutive">
+                              <Value>=Parameters!parExecutive.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parClassification">
+                              <Value>=Parameters!parClassification.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parBusinessType">
+                              <Value>=Parameters!parBusinessType.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parIndustries">
+                              <Value>=Parameters!parIndustries.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parSources">
+                              <Value>=Parameters!parSources.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parActionSet">
+                              <Value>="Actual"</Value>
+                            </Parameter>
+                            <Parameter Name="parRecordSet">
+                              <Value>="Success"</Value>
+                            </Parameter>
+                            <Parameter Name="parReportLabel">
+                              <Value>=Parameters!parReportLabel.Value</Value>
+                            </Parameter>
+                          </Parameters>
+                        </Drillthrough>
+                      </Action>
+                      <Style>
+                        <Color>#00467f</Color>
+                        <BackgroundColor>#d3d2c4</BackgroundColor>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                          <Top>White</Top>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontSize>11pt</FontSize>
+                        <FontWeight>700</FontWeight>
+                        <Format>c0</Format>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Sum(Fields!WonActual.Value)</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox37">
+                      <rd:DefaultName>textbox37</rd:DefaultName>
+                      <Action>
+                        <Drillthrough>
+                          <ReportName>=iif(Parameters!parExecutive.Value="(All)",FALSE,"DashboardDetails")</ReportName>
+                          <Parameters>
+                            <Parameter Name="parDateFrom">
+                              <Value>=Parameters!parDateFrom.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parDateTo">
+                              <Value>=Parameters!parDateTo.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parExecutive">
+                              <Value>=Parameters!parExecutive.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parClassification">
+                              <Value>=Parameters!parClassification.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parBusinessType">
+                              <Value>=Parameters!parBusinessType.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parIndustries">
+                              <Value>=Parameters!parIndustries.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parSources">
+                              <Value>=Parameters!parSources.Value</Value>
+                            </Parameter>
+                            <Parameter Name="parActionSet">
+                              <Value>="Actual"</Value>
+                            </Parameter>
+                            <Parameter Name="parRecordSet">
+                              <Value>="Due"</Value>
+                            </Parameter>
+                            <Parameter Name="parReportLabel">
+                              <Value>=Parameters!parReportLabel.Value</Value>
+                            </Parameter>
+                          </Parameters>
+                        </Drillthrough>
+                      </Action>
+                      <Style>
+                        <Color>#ce7109</Color>
+                        <BorderColor>
+                          <Default>#d3d2c4</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Verdana</FontFamily>
+                        <FontWeight>700</FontWeight>
+                        <Format>c0</Format>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>10pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Sum(Fields!DueActual.Value)</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>1.2cm</Height>
+            </TableRow>
+          </TableRows>
+        </Footer>
+      </Table>
+      <Rectangle Name="rectangle1">
+        <ZIndex>1</ZIndex>
+        <ReportItems>
+          <Textbox Name="textbox40">
+            <rd:DefaultName>textbox40</rd:DefaultName>
+            <Top>0.25cm</Top>
+            <Width>18.75cm</Width>
+            <Style>
+              <Color>#00467f</Color>
+              <BackgroundColor>#d3d2c4</BackgroundColor>
+              <FontFamily>Verdana</FontFamily>
+              <FontSize>18pt</FontSize>
+              <TextAlign>Center</TextAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>2</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Left>3.5cm</Left>
+            <Height>1cm</Height>
+            <Value>=Parameters!parReportLabel.Value</Value>
+          </Textbox>
+          <Image Name="image2">
+            <Sizing>AutoSize</Sizing>
+            <Width>3.30688cm</Width>
+            <MIMEType>image/gif</MIMEType>
+            <Source>Embedded</Source>
+            <Style />
+            <ZIndex>1</ZIndex>
+            <Left>22.5cm</Left>
+            <Height>1.45503cm</Height>
+            <Value>headerlogo</Value>
+          </Image>
+          <Image Name="image1">
+            <Sizing>AutoSize</Sizing>
+            <Width>3.30688cm</Width>
+            <MIMEType>image/gif</MIMEType>
+            <Source>Embedded</Source>
+            <Style />
+            <Height>1.45503cm</Height>
+            <Value>headername</Value>
+          </Image>
+        </ReportItems>
+        <Style>
+          <BackgroundColor>#d3d2c4</BackgroundColor>
+        </Style>
+        <Height>1.5cm</Height>
+      </Rectangle>
+      <Textbox Name="textBox_reportPeriod">
+        <Top>8cm</Top>
+        <Style>
+          <Color>#00467f</Color>
+          <BackgroundColor>White</BackgroundColor>
+          <FontFamily>Verdana</FontFamily>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>8pt</PaddingLeft>
+          <PaddingRight>8pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Value>="Report for "+Format(Parameters!parDateFrom.Value,"dd-MMM-yyyy")+" to "+Format(Parameters!parDateTo.Value,"dd-MMM-yyyy")+". Report filtered by "+IIF(Parameters!parClassification.Value&gt;0 And Parameters!parBusinessType.Value&gt;0 And Parameters!parIndustries.Value&lt;&gt;"" And Parameters!parSources.Value&lt;&gt;"",IIF(Parameters!parClassification.Value&gt;0,"Classification,   ","")+IIF(Parameters!parBusinessType.Value&gt;0,"Opportunity Type,   ","")+IIF(Parameters!parIndustries.Value&lt;&gt;"","ANZSIC,   ","")+IIF(Parameters!parSources.Value&lt;&gt;"","Source",""),"none")+". Report run "+Format(Now(),"dd-MMM-yyyy HH:mm:ss")</Value>
+      </Textbox>
+    </ReportItems>
+    <Height>8.50688cm</Height>
+  </Body>
+  <Language>en-US</Language>
+  <TopMargin>1.5cm</TopMargin>
+  <PageHeight>21cm</PageHeight>
+</Report>

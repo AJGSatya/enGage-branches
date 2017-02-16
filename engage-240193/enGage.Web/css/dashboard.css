@@ -1,0 +1,149 @@
+﻿body
+{
+}
+
+.dashboard-table
+{
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-size: 10pt;
+	border-collapse: collapse;
+}
+
+
+.dashboard-table td
+{
+	margin: 0;
+	/*padding: 12px 6px;*/
+	text-align: center;
+	border: 1px solid #E6E4DD;
+}
+
+.dashboard-table .head
+{
+	padding: 12px 12px;
+	text-align: left;
+	font-size: 18pt;
+	color: #00467f;
+	background-color: #d3d2c4;
+}
+
+.dashboard-table .subhead
+{
+	/*padding: 12px 4px;*/
+	font-size: 12pt;
+	height: 12px;
+	color: white;
+	background-color: #5f6062;
+}
+
+.dashboard-table .title
+{
+	padding: 6px 6px;
+	font-weight: bold;
+	border-bottom: none;
+}
+
+.dashboard-table .subtitle
+{
+	padding: 0px;
+	font-size: 8pt;
+	border-top: none;
+	height: 8px;
+}
+
+.dashboard-table .ochre-left
+{
+	padding: 12px 6px;
+	text-align: left;
+	color: #ce7109;
+}
+
+.dashboard-table .ochre-right
+{
+	padding: 12px 6px;
+	text-align: right;
+	color: #ce7109;
+}
+
+.dashboard-table .ochre-reg
+{
+	color: #ce7109;
+}
+
+.dashboard-table .ochre-bold
+{
+	padding: 12px 6px;
+	font-weight: bold;
+	color: #ce7109;
+}
+
+.dashboard-table .ochre-bold-large
+{
+	padding: 12px 6px;
+	font-size: 11pt;
+	font-weight: bold;
+	color: #ce7109;
+}
+
+.dashboard-table .left
+{
+	padding: 12px 6px;
+	text-align: left;
+}
+
+.dashboard-table .bold-large
+{
+	padding: 12px 6px;
+	font-size: 11pt;
+	font-weight: bold;
+}
+
+.dashboard-table .bold-large-lightgreybkg
+{
+	padding: 12px 6px;
+	font-size: 11pt;
+	font-weight: bold;
+	background-color: #d3d2c4;
+}
+
+.dashboard-table .bold-lightgreybkg
+{
+	padding: 12px 6px;
+	font-weight: bold;
+	background-color: #d3d2c4;
+}
+
+.dashboard-table .lightgreybkg
+{
+	background-color: #d3d2c4;
+}
+
+.dashboard-table .vertical-divider
+{
+	padding: 1px;
+	border-left: solid 1px #E6E4DD;
+	border-right: solid 1px #E6E4DD;
+}
+
+.dashboard-table .horizontal-divider
+{
+	padding: 1px;
+	height: 4px;
+	border-top: solid 1px #E6E4DD;
+	border-bottom: solid 1px #E6E4DD;
+	border-left: none;
+	border-right: none;
+}
+
+.dashboard-table .horizontal-divider-lightgreybkg
+{
+	background-color: #d3d2c4;
+	padding: 1px;
+	height: 4px;
+	border-top: solid 1px #E6E4DD;
+	border-bottom: solid 1px #E6E4DD;
+	border-left: none;
+	border-right: none;
+}

@@ -1,0 +1,608 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{784D5E0E-B69E-4203-AF92-4E6F7406E015}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>enGage.Web</RootNamespace>
+    <AssemblyName>enGage.Web</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=15.1.2.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Ado, Version=1.7.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.Ado.1.7.3\lib\net35\Glimpse.Ado.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.AspNet, Version=1.9.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.AspNet.1.9.2\lib\net35\Glimpse.AspNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.Core, Version=1.8.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.1.8.6\lib\net35\Glimpse.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.WebForms, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.WebForms.1.1.1\lib\net35\Glimpse.WebForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\Microsoft.Office.Interop.Outlook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.DataVisualization">
+      <HintPath>..\System.Web.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dll\Microsoft.ReportViewer.Common.dll" />
+    <Content Include="dll\Microsoft.ReportViewer.WebForms.dll" />
+    <Content Include="includes\Microsoft.ReportViewer.WebForms.dll" />
+    <Content Include="TempImageFiles\TEMPFILE.txt" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddActivity.aspx.cs">
+      <DependentUpon>AddActivity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddActivity.aspx.designer.cs">
+      <DependentUpon>AddActivity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddClient.aspx.cs">
+      <DependentUpon>AddClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddClient.aspx.designer.cs">
+      <DependentUpon>AddClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddContact.aspx.cs">
+      <DependentUpon>AddContact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddContact.aspx.designer.cs">
+      <DependentUpon>AddContact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddOpportunity.aspx.cs">
+      <DependentUpon>AddOpportunity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddOpportunity.aspx.designer.cs">
+      <DependentUpon>AddOpportunity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AssignQueue.aspx.cs">
+      <DependentUpon>AssignQueue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AssignQueue.aspx.designer.cs">
+      <DependentUpon>AssignQueue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BulkListFileUpload.aspx.cs">
+      <DependentUpon>BulkListFileUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BulkListFileUpload.aspx.designer.cs">
+      <DependentUpon>BulkListFileUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientContactsAll.aspx.cs">
+      <DependentUpon>ClientContactsAll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientContactsAll.aspx.designer.cs">
+      <DependentUpon>ClientContactsAll.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientOpportunitiesAll.aspx.cs">
+      <DependentUpon>ClientOpportunitiesAll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientOpportunitiesAll.aspx.designer.cs">
+      <DependentUpon>ClientOpportunitiesAll.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucAUPSS.ascx.cs">
+      <DependentUpon>ucAUPSS.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ucAUPSS.ascx.designer.cs">
+      <DependentUpon>ucAUPSS.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucMessanger.ascx.cs">
+      <DependentUpon>ucMessanger.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ucMessanger.ascx.designer.cs">
+      <DependentUpon>ucMessanger.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucSearchOptions.ascx.cs">
+      <DependentUpon>ucSearchOptions.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ucSearchOptions.ascx.designer.cs">
+      <DependentUpon>ucSearchOptions.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="BulkListUpload.aspx.cs">
+      <DependentUpon>BulkListUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BulkListUpload.aspx.designer.cs">
+      <DependentUpon>BulkListUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FollowUps2.aspx.cs">
+      <DependentUpon>FollowUps2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FollowUps2.aspx.designer.cs">
+      <DependentUpon>FollowUps2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FollowUpsAll.aspx.cs">
+      <DependentUpon>FollowUpsAll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FollowUpsAll.aspx.designer.cs">
+      <DependentUpon>FollowUpsAll.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FollowUpsAllActivities.aspx.cs">
+      <DependentUpon>FollowUpsAllActivities.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FollowUpsAllActivities.aspx.designer.cs">
+      <DependentUpon>FollowUpsAllActivities.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FollowUpsOld.aspx.cs">
+      <DependentUpon>FollowUpsOld.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FollowUpsOld.aspx.designer.cs">
+      <DependentUpon>FollowUpsOld.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlimpseSecurityPolicy.cs" />
+    <Compile Include="OpenReminder.aspx.cs">
+      <DependentUpon>OpenReminder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OpenReminder.aspx.designer.cs">
+      <DependentUpon>OpenReminder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="shareQueue.aspx.cs">
+      <DependentUpon>shareQueue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shareQueue.aspx.designer.cs">
+      <DependentUpon>shareQueue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\GlimpseTimeline.cs" />
+    <Compile Include="ViewOpportunity.aspx.cs">
+      <DependentUpon>ViewOpportunity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewOpportunity.aspx.designer.cs">
+      <DependentUpon>ViewOpportunity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard2.aspx.cs">
+      <DependentUpon>Dashboard2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard2.aspx.designer.cs">
+      <DependentUpon>Dashboard2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DashboardTotals.aspx.cs">
+      <DependentUpon>DashboardTotals.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DashboardTotals.aspx.designer.cs">
+      <DependentUpon>DashboardTotals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditActivity.aspx.cs">
+      <DependentUpon>EditActivity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditActivity.aspx.designer.cs">
+      <DependentUpon>EditActivity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditClient.aspx.cs">
+      <DependentUpon>EditClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditClient.aspx.designer.cs">
+      <DependentUpon>EditClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditOpportunity.aspx.cs">
+      <DependentUpon>EditOpportunity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditOpportunity.aspx.designer.cs">
+      <DependentUpon>EditOpportunity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.designer.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindClient.aspx.cs">
+      <DependentUpon>FindClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FindClient.aspx.designer.cs">
+      <DependentUpon>FindClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindClientAll.aspx.cs">
+      <DependentUpon>FindClientAll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FindClientAll.aspx.designer.cs">
+      <DependentUpon>FindClientAll.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FollowUps.aspx.cs">
+      <DependentUpon>FollowUps.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FollowUps.aspx.designer.cs">
+      <DependentUpon>FollowUps.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LogViewer.aspx.cs">
+      <DependentUpon>LogViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogViewer.aspx.designer.cs">
+      <DependentUpon>LogViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main.Master.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.Master.designer.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="NorthSydneyReport.aspx.cs">
+      <DependentUpon>NorthSydneyReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NorthSydneyReport.aspx.designer.cs">
+      <DependentUpon>NorthSydneyReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NotAuthorised.aspx.cs">
+      <DependentUpon>NotAuthorised.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotAuthorised.aspx.designer.cs">
+      <DependentUpon>NotAuthorised.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OpportunityActivitiesAll.aspx.cs">
+      <DependentUpon>OpportunityActivitiesAll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OpportunityActivitiesAll.aspx.designer.cs">
+      <DependentUpon>OpportunityActivitiesAll.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tallyboard.aspx.cs">
+      <DependentUpon>Tallyboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tallyboard.aspx.designer.cs">
+      <DependentUpon>Tallyboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TransferClient.aspx.cs">
+      <DependentUpon>TransferClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TransferClient.aspx.designer.cs">
+      <DependentUpon>TransferClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Utilities.cs" />
+    <Compile Include="ViewActivity.aspx.cs">
+      <DependentUpon>ViewActivity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewActivity.aspx.designer.cs">
+      <DependentUpon>ViewActivity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewClient.aspx.cs">
+      <DependentUpon>ViewClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewClient.aspx.designer.cs">
+      <DependentUpon>ViewClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewContact.aspx.cs">
+      <DependentUpon>ViewContact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewContact.aspx.designer.cs">
+      <DependentUpon>ViewContact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewOpportunityOld.aspx.cs">
+      <DependentUpon>ViewOpportunityOld.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewOpportunityOld.aspx.designer.cs">
+      <DependentUpon>ViewOpportunityOld.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AddActivity.aspx" />
+    <Content Include="AddClient.aspx" />
+    <Content Include="AddContact.aspx" />
+    <Content Include="AddOpportunity.aspx" />
+    <Content Include="ClientContactsAll.aspx" />
+    <Content Include="ClientOpportunitiesAll.aspx" />
+    <Content Include="Controls\ucAUPSS.ascx" />
+    <Content Include="Controls\ucMessanger.ascx" />
+    <Content Include="Controls\ucSearchOptions.ascx" />
+    <Content Include="css\dashboard.css" />
+    <Content Include="css\error.css" />
+    <Content Include="css\grid.css" />
+    <Content Include="css\master.css" />
+    <Content Include="css\shared.css" />
+    <Content Include="Dashboard.aspx" />
+    <Content Include="EditActivity.aspx" />
+    <Content Include="EditClient.aspx" />
+    <Content Include="EditOpportunity.aspx" />
+    <Content Include="ErrorPage.aspx" />
+    <Content Include="FindClient.aspx" />
+    <Content Include="FindClientAll.aspx" />
+    <Content Include="FollowUps.aspx" />
+    <Content Include="images\ajax-loader.gif" />
+    <Content Include="images\ArrowFirst.gif" />
+    <Content Include="images\ArrowHollow.gif" />
+    <Content Include="images\ArrowHollowSmall.gif" />
+    <Content Include="images\ArrowLast.gif" />
+    <Content Include="images\ArrowSolid.gif" />
+    <Content Include="images\ArrowSolidSmall.gif" />
+    <Content Include="images\Calendar.gif" />
+    <Content Include="images\Closer.gif" />
+    <Content Include="images\collapse.png" />
+    <Content Include="images\DashboardBackground.gif" />
+    <Content Include="images\empty.gif" />
+    <Content Include="images\error16x16.png" />
+    <Content Include="images\expand.png" />
+    <Content Include="images\FooterWide.gif" />
+    <Content Include="images\FooterWide_ALT.gif" />
+    <Content Include="images\Footer_ALT.gif" />
+    <Content Include="images\HeaderLogo.gif" />
+    <Content Include="images\HeaderName.gif" />
+    <Content Include="images\HeaderWide.gif" />
+    <Content Include="images\HeaderWide_ALT.gif" />
+    <Content Include="images\Header_ALT.gif" />
+    <Content Include="images\info16x16.png" />
+    <Content Include="images\Footer.gif" />
+    <Content Include="images\Header.gif" />
+    <Content Include="images\oamps-logo.png" />
+    <Content Include="images\OllySide.gif" />
+    <Content Include="images\OpportunityEndorsement.gif" />
+    <Content Include="images\OpportunityExistingClients.gif" />
+    <Content Include="images\OpportunityFlagged.gif" />
+    <Content Include="images\OpportunityNewBusiness.gif" />
+    <Content Include="images\OpportunityQuickQuote.gif" />
+    <Content Include="images\OpportunityQuickWin.gif" />
+    <Content Include="images\OpportunityReclaimedBusiness.gif" />
+    <Content Include="images\OpportunityRenewal.gif" />
+    <Content Include="images\Spacer.gif" />
+    <Content Include="images\warning16x16.png" />
+    <Content Include="LogViewer.aspx" />
+    <Content Include="Main.Master" />
+    <Content Include="NorthSydneyReport.aspx" />
+    <Content Include="NotAuthorised.aspx" />
+    <Content Include="OpportunityActivitiesAll.aspx" />
+    <Content Include="scripts\CallWebServiceMethods.js" />
+    <Content Include="scripts\shared.js" />
+    <Content Include="TransferClient.aspx" />
+    <Content Include="ViewActivity.aspx" />
+    <Content Include="ViewClient.aspx" />
+    <Content Include="ViewContact.aspx" />
+    <Content Include="ViewOpportunityOld.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\enGage.BL\enGage.BL.csproj">
+      <Project>{CC84B553-7892-41B7-9553-55B2520D2FC9}</Project>
+      <Name>enGage.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\enGage.DL\enGage.DL.csproj">
+      <Project>{07F308A8-2F3E-43FA-96F1-6AA28CD4B992}</Project>
+      <Name>enGage.DL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DashboardTotals.aspx" />
+    <Content Include="Reports\NorthSydney.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\DashboardTotals.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\JqueryPopup\magnific-popup.css" />
+    <Content Include="scripts\JqueryPopup\jquery.magnific-popup.min.js" />
+    <Content Include="css\JqueryUpload\jquery.fileupload-noscript.css" />
+    <Content Include="css\JqueryUpload\jquery.fileupload-ui-noscript.css" />
+    <Content Include="css\JqueryUpload\jquery.fileupload-ui.css" />
+    <Content Include="css\JqueryUpload\jquery.fileupload.css" />
+    <Content Include="css\JqueryUpload\style.css" />
+    <Content Include="scripts\JqueryUpload\vendor\jquery.ui.widget.js" />
+    <Content Include="images\asc.gif" />
+    <Content Include="images\bg.gif" />
+    <Content Include="images\desc.gif" />
+    <Content Include="images\pager\first.png" />
+    <Content Include="images\pager\last.png" />
+    <Content Include="images\pager\next.png" />
+    <Content Include="images\pager\prev.png" />
+    <Content Include="OpenReminder.aspx" />
+    <Content Include="scripts\jquery.tablesorter.js" />
+    <Content Include="scripts\jquery.tablesorter.pager.js" />
+    <Content Include="scripts\JqueryUpload\jquery.fileupload-audio.js" />
+    <Content Include="scripts\JqueryUpload\jquery.fileupload-image.js" />
+    <Content Include="scripts\JqueryUpload\jquery.fileupload-jquery-ui.js" />
+    <Content Include="scripts\JqueryUpload\jquery.fileupload-process.js" />
+    <Content Include="scripts\JqueryUpload\jquery.fileupload-ui.js" />
+    <Content Include="scripts\JqueryUpload\jquery.fileupload-validate.js" />
+    <Content Include="scripts\JqueryUpload\jquery.fileupload-video.js" />
+    <Content Include="scripts\JqueryUpload\jquery.fileupload.js" />
+    <Content Include="scripts\JqueryUpload\jquery.iframe-transport.js" />
+    <Content Include="ViewOpportunity.aspx" />
+    <Content Include="Dashboard2.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="images\collapse.jpg" />
+    <Content Include="images\expand.jpg" />
+    <Content Include="images\OpportunityQuickCall.gif" />
+    <Content Include="Reports\Dashboard.rdlc" />
+    <Content Include="Reports\DashboardDetails.rdlc" />
+    <Content Include="scripts\jquery-1.8.3.min.js" />
+    <Content Include="Tallyboard.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AssignQueue.aspx" />
+    <Content Include="BulkListFileUpload.aspx" />
+    <Content Include="BulkListUpload\BulkListUploadHandler.ashx" />
+    <Content Include="BulkListUpload.aspx" />
+    <Content Include="css\JqueryUpload\demo-ie8.css" />
+    <Content Include="css\JqueryUpload\demo.css" />
+    <Content Include="enhancedindex.html" />
+    <Content Include="FollowUps2.aspx" />
+    <Content Include="FollowUpsAll.aspx" />
+    <Content Include="FollowUpsAllActivities.aspx" />
+    <Content Include="FollowUpsOld.aspx" />
+    <Content Include="scripts\Copy of jquery.tablesorter.min.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <Content Include="scripts\jquery.corner.js" />
+    <Content Include="scripts\jquery.corners.js" />
+    <Content Include="scripts\JqueryUpload\app.js" />
+    <Content Include="scripts\JqueryUpload\cors\jquery.postmessage-transport.js" />
+    <Content Include="scripts\JqueryUpload\cors\jquery.xdr-transport.js" />
+    <Content Include="scripts\JqueryUpload\jquery.fileupload-angular.js" />
+    <Content Include="scripts\JqueryUpload\main.js" />
+    <Content Include="scripts\JqueryUpload\mainfileupload.js" />
+    <Content Include="scripts\JqueryUpload\jquery.magnific-popup.min.js" />
+    <Content Include="scripts\jquery-migrate-1.2.1.js" />
+    <Content Include="scripts\moment.js" />
+    <Content Include="shareQueue.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="UploadedFiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\enGage.pubxml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Condition="'$(VSToolsPath)' != ''" Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Import Condition="'$(VSToolsPath)' != ''" Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52329</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52328/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

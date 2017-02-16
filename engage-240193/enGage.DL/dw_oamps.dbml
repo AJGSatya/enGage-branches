@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="dw_oamps" Class="dw_oampsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Function Name="dbo.sp_engage_search_client" Method="sp_engage_search_client">
+    <Parameter Name="SearchCriteria" Parameter="searchCriteria" Type="System.String" DbType="VarChar(250)" />
+    <Parameter Name="ClientFilter" Parameter="clientFilter" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="MatchFilter" Parameter="matchFilter" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="MaxRecords" Parameter="maxRecords" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NoOfRecords" Parameter="noOfRecords" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <ElementType Name="sp_engage_search_clientResult">
+      <Column Name="ClientName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="ClientCode" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="BranchCode" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Executive_Name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Matched" Type="System.String" DbType="VarChar(258)" CanBeNull="true" />
+      <Column Name="Match" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="Inactive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_engage_get_client" Method="sp_engage_get_client">
+    <Parameter Name="ClientCode" Parameter="clientCode" Type="System.String" DbType="VarChar(255)" />
+    <ElementType Name="sp_engage_get_clientResult">
+      <Column Name="ClientCode" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="ClientName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Address_Line_1" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Address_Line_2" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Address_Line_3" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Suburb" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Postcode" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="ABN" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Anzsic_Code" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ActiveClientInd" Type="System.Char" DbType="VarChar(1)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
